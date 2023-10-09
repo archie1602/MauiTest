@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MauiTest.SettingsPage"
+             xmlns:viewModels="clr-namespace:MauiTest"
+             x:DataType="viewModels:SettingsViewModel">
+    <Grid RowDefinitions="250"
+          ColumnDefinitions="250">
+        <Switch IsToggled="{Binding IsBroadTogl}"
+                BackgroundColor="Aqua">
+            <Switch.Behaviors>
+                <toolkit:EventToCommandBehavior
+                    x:TypeArguments="ToggledEventArgs"
+                    EventName="Toggled"
+                    Command="{Binding BroadcastingToggledCommand}"/>
+            </Switch.Behaviors>
+        </Switch>
+    </Grid>
+</ContentPage>
